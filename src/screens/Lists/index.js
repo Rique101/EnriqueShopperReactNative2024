@@ -29,6 +29,12 @@ const ListsScreen = props => {
         name: 'Valentines Day List',
         store: 'Gertrude Hawk',
         date: '2024-01-24'
+      },
+      {
+        id: 3,
+        name: 'Back To School List',
+        store: 'Staples',
+        date: '2024-02-14'
       }
     ]);
 
