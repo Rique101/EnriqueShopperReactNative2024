@@ -12,6 +12,7 @@ const AddListScreen = props => {
     const [name, setName] = useState('');
     const [store, setStore] = useState('');
     const [date, setDate] = useState('');
+    const [priority, setPriority] = useState('')
 
     const onListAdd = () => {
         if (!name){
@@ -26,9 +27,14 @@ const AddListScreen = props => {
             alert('Please enter a shopping list date.');
             return;
         }
+        if (!priority){
+            alert('Please enter priority (HIGH,LOW');
+            return;
+        }
+        
 
         try {
-            database.addList(name, store, date);
+            database.addList(name, store, date, priority);
         } catch (error) {
             console.log('Error adding list ' + error);
         }
@@ -54,9 +60,16 @@ const AddListScreen = props => {
                 placeholderTextColor={'grey'}
             />
             <TextInput 
+                value={priority}
+                onChangeText={value => setPriority(value)}
+                style={styles.priority}
+                placeholder={'Enter priority (HIGH,LOW)'}
+                placeholderTextColor={'grey'}
+            />
+            <TextInput 
                 value={date}
                 onChangeText={value => setDate(value)}
-                style={styles.name}
+                style={styles.date}
                 placeholder={'Enter Date in format YYYY-MM-DD'}
                 placeholderTextColor={'grey'}
             />

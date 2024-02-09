@@ -17,26 +17,7 @@ const ListsScreen = props => {
 
     const navigation = useNavigation();
 
-    const [lists, setLists] = useState([
-      {
-        id: 1,
-        name: 'Grocery List',
-        store: 'Redners',
-        date: '2024-01-30',
-      },
-      {
-        id: 2,
-        name: 'Valentines Day List',
-        store: 'Gertrude Hawk',
-        date: '2024-01-24'
-      },
-      {
-        id: 3,
-        name: 'Back To School List',
-        store: 'Staples',
-        date: '2024-02-14'
-      }
-    ]);
+    const [lists, setLists] = useState([]);
 
     useEffect(() => {
       const listener = navigation.addListener('focus', () => {
@@ -71,7 +52,7 @@ const ListsScreen = props => {
               } else {
                 // if no rows of data were selected
                 // assign empty array to lists state variiable
-                setlists([]);
+                setLists([]);
               }
             },
             error =>{
